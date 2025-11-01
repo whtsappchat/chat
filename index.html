@@ -8,39 +8,63 @@
     :root {
       --accent: #25D366;
       --text-dark: #222;
-      --bg-glass: rgba(255, 255, 255, 0.25);
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       height: 100vh;
+      font-family: "Helvetica Neue", Arial, sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      background: url('https://raw.githubusercontent.com/whtsappchat/background/main/1.jpg')
-                  center/cover no-repeat fixed;
-      background-color: #f0fff5;
+      overflow: hidden;
+      position: relative;
     }
+
+    /* Layer blur untuk latar belakang lebar */
+    .bg-blur {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://raw.githubusercontent.com/whtsappchat/background/main/1.jpg') center/cover no-repeat;
+      filter: blur(25px) brightness(0.6);
+      transform: scale(1.1);
+      z-index: -2;
+    }
+
+    /* Layer utama (gambar potret di tengah) */
+    .bg-main {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://raw.githubusercontent.com/whtsappchat/background/main/1.jpg') center/contain no-repeat;
+      z-index: -1;
+    }
+
     .card {
-      background: var(--bg-glass);
+      text-align: center;
+      background: rgba(255,255,255,0.25);
       backdrop-filter: blur(12px);
       border-radius: 16px;
       padding: 32px;
-      text-align: center;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
       width: min(420px, 92%);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      color: var(--text-dark);
     }
+
     h1 {
       color: var(--accent);
       margin: 0 0 10px;
       font-size: 26px;
     }
     p {
-      color: var(--text-dark);
       font-size: 15px;
       margin-bottom: 24px;
+      color: #111;
     }
+
     .cta {
       display: inline-flex;
       align-items: center;
@@ -55,10 +79,12 @@
       transition: 0.3s;
       box-shadow: 0 6px 18px rgba(37,211,102,0.3);
     }
+
     .cta:hover {
       background-color: #1ebe5d;
       transform: scale(1.05);
     }
+
     .cta img { width: 22px; height: 22px; }
 
     .trust-text {
@@ -70,6 +96,7 @@
     .trust-text span {
       display: block;
     }
+
     footer {
       margin-top: 24px;
       font-size: 12px;
@@ -78,24 +105,25 @@
   </style>
 </head>
 <body>
+  <div class="bg-blur"></div>
+  <div class="bg-main"></div>
+
   <div class="card">
     <h1>WhatsApp Private Room 🔒</h1>
     <p>Connect and chat privately with verified users.</p>
 
-    <!-- tombol aktif ke contoh aman -->
     <a href="https://kereva.datingkisss.com/?utm_source=da57dc555e50572d&ban=fb&j1=1&s1=236468&s2=2173856&click_id=ISABELLA" class="cta" target="_blank" rel="noopener noreferrer">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon">
       Join Now
     </a>
 
-    <!-- teks bawah -->
     <div class="trust-text">
       <span>Verified Profiles ✅</span>
       <span>100% Real People ❤️</span>
       <span>Safe & Secure Chat 💬</span>
     </div>
 
-    <footer>© 2025 WhatsApp Private Room — Demo Version</footer>
+    <footer>© 2025 WhatsApp Private Room</footer>
   </div>
 </body>
 </html>
